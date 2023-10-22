@@ -131,6 +131,7 @@ const Container = styled.div`
     background-color: #4e0eff;
     color: white;
     padding: 1rem 2rem;
+    width: 100%;
     border: none;
     font-weight: bold;
     cursor: pointer;

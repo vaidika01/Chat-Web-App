@@ -7,10 +7,13 @@ import axios from "axios";
 import Message from "./messages";
 import { sendmessageRoute } from "../utils/APIroutes";
 
-const ChatContainer = ({ currentChat, currentUser }) => {
+const ChatContainer = ({ currentChat }) => {
   const handleSendMsg = async (msg) => {
+    const data = await JSON.parse(
+      localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
+    );
     await axios.post(sendmessageRoute, {
-      from: currentUser._id,
+      from: data._id,
       to: currentChat._id,
       message: msg,
     });
