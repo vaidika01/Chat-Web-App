@@ -3,19 +3,21 @@
 
 ## Vaidika Bamne | IIT Bombay | Mechanical Engineering(B.Tech)
 
-iTalk is chat application build with the power of MERN Stack.
+iTalk is a chat application build with the power of MERN Stack.
 
 
 
 ## Screenshots
 
-![App Screenshot](https://github.com/vaidika01/Chat-Web-App/blob/master/Images/Screenshot%20(1162).png)
+![App Screenshot](https://github.com/vaidika01/Chat-Web-App/blob/master/Images/Screenshot%20(1174).png)
 
-![App Screenshot](https://github.com/vaidika01/Chat-Web-App/blob/master/Images/Screenshot%20(1163).png)
+![App Screenshot](https://github.com/vaidika01/Chat-Web-App/blob/master/Images/Screenshot%20(1175).png)
 
-![App Screenshot](https://github.com/vaidika01/Chat-Web-App/blob/master/Images/Screenshot%20(1159).png)
+![App Screenshot](https://github.com/vaidika01/Chat-Web-App/blob/master/Images/Screenshot%20(1171).png)
 
-![App Screenshot](https://github.com/vaidika01/Chat-Web-App/blob/master/Images/Screenshot%20(1161).png)
+![App Screenshot](https://github.com/vaidika01/Chat-Web-App/blob/master/Images/Screenshot%20(1176).png)
+
+![App Screenshot](https://github.com/vaidika01/Chat-Web-App/blob/master/Images/Screenshot%20(1172).png)
 
 ## Requirements
 - [Nodejs](https://nodejs.org/en/download)
@@ -44,7 +46,6 @@ cd public
 yarn start
 ```
 For Backend.
-
 Open another terminal in folder, Also make sure mongodb is running in background.
 ```shell
 cd server
