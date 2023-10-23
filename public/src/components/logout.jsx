@@ -1,10 +1,20 @@
 import React from "react";
-import { BiPowerOff } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { BiPowerOff } from "react-icons/bi";
+import axios from "axios";
+import { logoutRoute } from "../utils/APIroutes";
 
 const Logout = () => {
+  const navigate = useNavigate();
+
+  const handleClick = async () => {
+    localStorage.clear();
+    navigate("/signIn");
+  };
+
   return (
-    <Button>
+    <Button onClick={handleClick}>
       <BiPowerOff />
     </Button>
   );

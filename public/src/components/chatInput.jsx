@@ -11,10 +11,11 @@ const ChatInput = ({ handleSendMsg }) => {
     setShowEmojiPicker(!showEmojiPicker);
   };
 
-  const handleEmojiClick = (event, emojiObject) => {
+  const handleEmojiClick = (emoji, event) => {
     let message = msg;
-    message += emojiObject.emoji;
+    message += event.emoji;
     setMsg(message);
+    console.log(message);
   };
 
   const sendChat = (event) => {
@@ -103,7 +104,7 @@ const Container = styled.div`
     border-radius: 2rem;
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 0rem;
     background-color: #ffffff34;
     input {
       width: 90%;

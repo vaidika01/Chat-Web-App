@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Logout from "./logout";
 import { BiUser } from "react-icons/bi";
 import ChatInput from "./chatInput";
 import axios from "axios";
-import Message from "./messages";
-import { sendmessageRoute } from "../utils/APIroutes";
+import { getAllMessagesRoute, sendmessageRoute } from "../utils/APIroutes";
 
 const ChatContainer = ({ currentChat }) => {
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await JSON.parse(
+        localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
+      );
+      if (currentChat) {
+        const response = await axios.post(getAllMessagesRoute, {
+          from: data._id,
+          to: currentChat._id,
+        });
+        setMessages(response.data);
+      }
+    };
+    fetchData();
+  }, [currentChat]);
+
   const handleSendMsg = async (msg) => {
     const data = await JSON.parse(
       localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
@@ -35,7 +52,21 @@ const ChatContainer = ({ currentChat }) => {
           </div>
           <Logout />
         </div>
-        <Message />
+        <div className="chat-messages">
+          {messages.map((message) => {
+            return (
+              <div
+                className={`message ${
+                  message.fromSelf ? "sended" : "recieved"
+                }`}
+              >
+                <div className="content ">
+                  <p>{message.message}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
         <ChatInput handleSendMsg={handleSendMsg} />
       </Container>
     )
@@ -84,12 +115,12 @@ const Container = styled.div`
       display: flex;
       align-items: center;
       .content {
-        max-width: 40%;
+        max-width: 20%;
         overflow-wrap: break-word;
         padding: 1rem;
         font-size: 1.1rem;
         border-radius: 1rem;
-        color: #d1d1d1;
+        color: white;
         @media screen and (min-width: 720px) and (max-width: 1080px) {
           max-width: 70%;
         }
@@ -124,4 +155,5 @@ const Button = styled.button`
     color: #ebe7ff;
   }
 `;
+
 export default ChatContainer;
